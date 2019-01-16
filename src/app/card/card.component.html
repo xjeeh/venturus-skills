@@ -1,0 +1,27 @@
+<div class="card">
+  <img [src]="profile.image" class="image">
+  <div class="name">{{profile.name}}</div>
+  <div class="title">{{profile.title}}</div>
+  <div class="description">{{profile.description}}</div>
+  <div class="skills">
+    <div class="section development">
+      <div class="group">
+        <div class="name">Front-end</div>
+        <div class="skills">
+          <div class="skill">
+            <div class="name">Angular</div>
+            <div class="score">10</div>
+          </div>
+          <div class="skill">
+            <div class="name">React</div>
+            <div class="score">8</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="actions">
+    <div class="details" (click)="details(profile)"></div>
+    <div class="select" (click)="select(profile)"></div>
+  </div>
+</div>
