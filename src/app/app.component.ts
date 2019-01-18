@@ -16,7 +16,9 @@ export class AppComponent {
     {
       image: '/assets/images/xjeeh.png',
       name: 'Jefferson Santos',
+      role: 'frontend',
       title: 'FrontEnd Developer',
+      allocation: ['Gemalto'],
       description: this.lorem,
       skills:
       {
@@ -33,7 +35,9 @@ export class AppComponent {
     {
       image: '/assets/images/marcelofrau.jpg',
       name: 'Marcelo Frau',
-      title: 'FullStack Developer',
+      role: 'backend',
+      title: 'BackEnd Developer',
+      allocation: ['S2', 'Gemalto'],
       description: this.lorem,
       skills:
       {
@@ -46,7 +50,9 @@ export class AppComponent {
     {
       image: '/assets/images/alinebossi.png',
       name: 'Aline Bossi',
-      title: 'BackEnd Developer',
+      role: 'fullstack',
+      title: 'FullStack Developer',
+      allocation: ['CGO', 'Mercado Bitcoin'],
       description: this.lorem,
       skills:
       {
