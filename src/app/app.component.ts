@@ -1,5 +1,7 @@
-import { Component, ViewEncapsulation } from '@angular/core';
-import { Profile } from './shared/models/profile.model';
+import { Component, ViewEncapsulation, OnInit } from '@angular/core';
+import { Roles, SeniorityLevels } from './shared/models/employee.model';
+import { Skills } from './shared/models/skill.model';
+import { Companies } from './shared/models/company.model';
 
 @Component({
   selector: 'app-root',
@@ -9,62 +11,121 @@ import { Profile } from './shared/models/profile.model';
 })
 export class AppComponent {
 
-  // tslint:disable-next-line:max-line-length
-  lorem = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam porttitor condimentum venenatis. Cras sollicitudin maximus erat a viverra. Donec eget viverra sapien. Donec non augue sollicitudin, volutpat urna vitae, vulputate urna. Phasellus nibh metus, accumsan sed eros in, porta cursus mauris. In mi ligula, tincidunt quis dui ac, accumsan porttitor nulla. Phasellus enim turpis, volutpat sit amet dolor porttitor, sodales luctus nunc. Ut orci quam, laoreet vitae metus in, efficitur cursus odio. Nunc semper turpis vel sem malesuada accumsan non laoreet ipsum. Suspendisse finibus dictum tellus ac blandit. Donec eleifend luctus augue, a dapibus turpis lacinia eget. Ut ut erat aliquet, commodo erat eu, fringilla leo. Vivamus ultricies, purus vel mollis dictum, ante nibh volutpat est, et blandit turpis est quis sem.';
+  objectKeys = Object.keys;
 
-  profiles = [
+  profiles =
     {
-      image: '/assets/images/xjeeh.png',
-      name: 'Jefferson Santos',
-      role: 'frontend',
-      title: 'FrontEnd Developer',
-      allocation: ['Gemalto'],
-      description: this.lorem,
-      skills:
-      {
-        development: {
-          front: [{ name: 'Angular', score: 10 }],
-          back: [{ name: 'Node.js', score: 6 }],
-        },
-        design: {
-          ui: [{ name: 'typography', score: 2 }],
-          ux: [{ name: 'interaction design', score: 3 }],
-        }
+      executiveManager: {
+        id: Roles.executiveManager.id,
+        description: Roles.executiveManager.description,
+        color: Roles.executiveManager.color,
+        employees: [
+          {
+            image: '/assets/images/anselmo.jpg',
+            name: 'Anselmo Junior',
+            seniority: SeniorityLevels.gerente,
+            allocation: [Companies.Gemalto],
+            skills: [],
+          }
+        ]
       },
-    },
-    {
-      image: '/assets/images/marcelofrau.jpg',
-      name: 'Marcelo Frau',
-      role: 'backend',
-      title: 'BackEnd Developer',
-      allocation: ['S2', 'Gemalto'],
-      description: this.lorem,
-      skills:
-      {
-        development: {
-          front: [{ name: 'React', score: 10 }],
-          back: [{ name: '.NET', score: 6 }],
-        }
+      projectManager: {
+        id: Roles.projectManager.id,
+        description: Roles.projectManager.description,
+        color: Roles.projectManager.color,
+        employees: [
+          {
+            image: '/assets/images/camera.jpg',
+            name: 'Marcelo Camera',
+            seniority: SeniorityLevels.gerente,
+            allocation: [Companies.Gemalto],
+            skills: [],
+          }
+        ]
       },
-    },
-    {
-      image: '/assets/images/alinebossi.png',
-      name: 'Aline Bossi',
-      role: 'fullstack',
-      title: 'FullStack Developer',
-      allocation: ['CGO', 'Mercado Bitcoin'],
-      description: this.lorem,
-      skills:
-      {
-        development: {
-          front: [{ name: 'PrimeFaces', score: 10 }],
-          back: [{ name: 'Java', score: 6 }],
-        }
+      developer: {
+        id: Roles.developer.id,
+        description: Roles.developer.description,
+        color: Roles.developer.color,
+        employees: [
+          {
+            image: '/assets/images/jeff.png',
+            name: 'Jefferson Santos',
+            seniority: SeniorityLevels.pleno,
+            allocation: [Companies.Gemalto],
+            skills: []
+          },
+          {
+            image: '/assets/images/iza.jpg',
+            name: 'Izabela Lima',
+            seniority: SeniorityLevels.pleno,
+            allocation: [Companies.Gemalto],
+            skills: [],
+          },
+          {
+            image: '/assets/images/frau.jpg',
+            name: 'Marcelo Frau',
+            seniority: SeniorityLevels.senior,
+            allocation: [Companies.S2, Companies.Gemalto],
+            skills: [],
+          },
+          {
+            image: '/assets/images/aline.png',
+            name: 'Aline Bossi',
+            seniority: SeniorityLevels.pleno,
+            allocation: [Companies.CGO, Companies.MercadoBitcoin],
+            skills: [],
+          }
+        ]
       },
-    },
-  ];
-
-  details() { }
-
-  select() { }
+      designer: {
+        id: Roles.designer.id,
+        description: Roles.designer.description,
+        color: Roles.designer.color,
+        employees: [
+          {
+            image: '/assets/images/camila.jpg',
+            name: 'Camila Borges',
+            seniority: SeniorityLevels.junior,
+            allocation: [Companies.Gemalto],
+            skills: [],
+          }
+        ]
+      },
+      tester: {
+        id: Roles.tester.id,
+        description: Roles.tester.description,
+        color: Roles.tester.color,
+        employees: [
+          {
+            image: '/assets/images/naga.jpg',
+            name: 'Renato Nagashima',
+            seniority: SeniorityLevels.senior,
+            allocation: [Companies.Gemalto],
+            skills: [],
+          },
+          {
+            image: '/assets/images/livia.jpg',
+            name: 'Lívia Fagali',
+            seniority: SeniorityLevels.master,
+            allocation: [Companies.Gemalto],
+            skills: [],
+          }
+        ]
+      },
+      requirementsAnalyst: {
+        id: Roles.requirementsAnalyst.id,
+        description: Roles.requirementsAnalyst.description,
+        color: Roles.requirementsAnalyst.color,
+        employees: [
+          {
+            image: '/assets/images/fabi.jpg',
+            name: 'Fabiana Peres',
+            seniority: SeniorityLevels.pleno,
+            allocation: [Companies.Gemalto],
+            skills: [],
+          }
+        ]
+      }
+    };
 }

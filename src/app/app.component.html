@@ -1,7 +1,17 @@
+<nav class="navbar row end-xs middle-xs">
+  <div class="col-xs-12 col-sm-2 col-md-1 company"><input type="text" placeholder="Cliente"></div>
+  <div class="col-xs-12 col-sm-2 col-md-1 role"><input type="text" placeholder="Cargo"></div>
+  <div class="col-xs-12 col-sm-2 col-md-1 skill"><input type="text" placeholder="Skill"></div>
+  <div class="col-xs-12 col-sm-1 col-md-1 start-sm submit"><button type="button"><i class="fas fa-search"></i></button></div>
+</nav>
+
 <div class="container-fluid">
-  <div class="container cards">
-    <div class="row around-xs">
-      <app-card class="col-xs-4" *ngFor="let profile of profiles" [profile]="profile"></app-card>
+
+  <div class="list container">
+    <div class="row group" *ngFor="let group of objectKeys(profiles)">
+      <h1 class="col-xs-12 title">{{profiles[group].description}}</h1>
+      <app-card class="col-xs-12 col-sm-4 col-md-3" *ngFor="let profile of profiles[group].employees" [profile]="profile"
+        [id]="profiles[group].id" [description]="profiles[group].description" [color]="profiles[group].color"></app-card>
     </div>
   </div>
 </div>

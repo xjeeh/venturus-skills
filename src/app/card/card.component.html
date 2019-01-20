@@ -1,35 +1,18 @@
 <div class="card">
-  <svg class="profile-image "viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <svg class="profile-image " viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg">
     <defs>
       <pattern [attr.id]="profile.image" patternUnits="userSpaceOnUse" width="100" height="100">
         <image [attr.xlink:href]="profile.image" x="-25" width="150" height="100" />
       </pattern>
     </defs>
-    <polygon points="50 1 95 25 95 75 50 99 5 75 5 25" [attr.stroke]="getRoleColor(profile.role)" stroke-width="2" [attr.fill]="'url(#'+profile.image+')'" />
+    <polygon points="50 1 95 25 95 75 50 99 5 75 5 25" [attr.stroke]="color" stroke-width="2.5" [attr.fill]="'url(#'+profile.image+')'" />
   </svg>
-  <div class="name">{{profile.name}}</div>
-  <div class="title">{{profile.title}}</div>
-  <div class="alocation"><b>Allocations:</b> {{getAllocations(profile.allocation)}}</div>
-  <div class="skills">
-    <b>Skills:</b> 
-    <div class="section development">
-      <div class="group">
-        <div class="name">Front-end</div>
-        <div class="skills">
-          <div class="skill">
-            <div class="name">Angular</div>
-            <div class="score">10</div>
-          </div>
-          <div class="skill">
-            <div class="name">React</div>
-            <div class="score">8</div>
-          </div>
-        </div>
-      </div>
-    </div>
+  <div class="seniority" [ngClass]="profile.seniority.id" [attr.title]="profile.seniority.description" [innerHTML]="getSeniorityIcon(profile.seniority)">
   </div>
-  <div class="actions">
-    <button class="detail" class="detail" (click)="details(profile)">Details</button>
-    <button class="select" class="select" (click)="select(profile)">Select</button>
+  <div class="name">{{profile.name}}</div>
+  <div class="title">{{description}}</div>
+  <div class="alocation"><b>Alocações:</b> {{profile.allocation.join(', ')}}</div>
+  <div class="skills">
+    <b>Skills:</b>
   </div>
 </div>

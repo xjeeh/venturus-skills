@@ -1,7 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
 html {
   font-family: Helvetica, sans-serif;
-  background-color: #bdc3c7;
+  background-color: #f0f4f6;
+
+  body {
+    margin: 0;
+  }
 }
 
 * {

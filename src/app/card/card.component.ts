@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, ViewEncapsulation } from '@angular/core';
+import { Roles, SeniorityLevels } from './../shared/models/employee.model';
 
 @Component({
   selector: 'app-card',
@@ -10,21 +11,31 @@ export class CardComponent {
 
   constructor() { }
 
-  roleColors = {
-    frontend: '#22a7f0',
-    backend: '#f03434',
-    fullstack: '#7befb2',
-    tester: '#fad859'
-  };
-
   @Input() profile;
+  @Input() id;
+  @Input() description;
+  @Input() color;
 
-  getAllocations(profile) {
-    return profile.join(', ');
+  getSeniorityIcon(seniority) {
+    switch (seniority) {
+      case SeniorityLevels.estagiario: {
+        return `<i class="fas fa-baby"></i>`;
+      }
+      case SeniorityLevels.junior: {
+        return `<i class="fas fa-chevron-right"></i>`;
+      }
+      case SeniorityLevels.pleno: {
+        return `<i class="fas fa-chevron-right"></i>`.repeat(2);
+      }
+      case SeniorityLevels.senior: {
+        return `<i class="fas fa-chevron-right"></i>`.repeat(3);
+      }
+      case SeniorityLevels.master: {
+        return `<b>|</b>` + `<i class="fas fa-chevron-right"></i>`.repeat(3);
+      }
+      case SeniorityLevels.gerente: {
+        return `<i class="fas fa-star"></i>`;
+      }
+    }
   }
-
-  getRoleColor(role) {
-    return this.roleColors[role];
-  }
-
 }
