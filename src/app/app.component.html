@@ -1,5 +1,9 @@
 <nav class="navbar row end-xs middle-xs">
 
+  <div class="col-xs-1 icon">
+    <div class="navbar-brand"></div>
+  </div>
+
   <div class="col-xs-12 col-sm-2 col-md-1 company">
     <div class="label">Clientes</div>
     <select [(ngModel)]="filters.companies" (change)="applyFilter()">
@@ -26,7 +30,7 @@
 
   <div class="col-xs-12 col-sm-1 col-md-1 start-sm submit">
     <button type="button" (click)="clearFilters()">
-      <i class="fas fa-ban"></i> 
+      <i class="fas fa-ban"></i>
       <b>Limpar</b>
     </button>
   </div>

@@ -17,23 +17,23 @@ export class CardComponent {
   @Input() color;
 
   getSeniorityIcon(seniority) {
-    switch (seniority) {
-      case SeniorityLevels.estagiario: {
+    switch (seniority.id) {
+      case SeniorityLevels.estagiario.id: {
         return `<i class="fas fa-baby"></i>`;
       }
-      case SeniorityLevels.junior: {
+      case SeniorityLevels.junior.id: {
         return `<i class="fas fa-chevron-right"></i>`;
       }
-      case SeniorityLevels.pleno: {
+      case SeniorityLevels.pleno.id: {
         return `<i class="fas fa-chevron-right"></i>`.repeat(2);
       }
-      case SeniorityLevels.senior: {
+      case SeniorityLevels.senior.id: {
         return `<i class="fas fa-chevron-right"></i>`.repeat(3);
       }
-      case SeniorityLevels.master: {
+      case SeniorityLevels.master.id: {
         return `<b>|</b>` + `<i class="fas fa-chevron-right"></i>`.repeat(3);
       }
-      case SeniorityLevels.gerente: {
+      case SeniorityLevels.gerente.id: {
         return `<i class="fas fa-star"></i>`;
       }
     }
