@@ -7,12 +7,19 @@
   left: 0;
   z-index: 1;
   padding: 20px;
-  margin: 0px;
+  margin: 0;
 
   &>div {
     padding: 0 15px;
 
-    input {
+    .label {
+      color: white;
+      text-align: left;
+      margin: 5px 0;
+    }
+
+    select {
+      width: 100%;
       max-width: 100%;
       border: 0;
       padding: 10px;
@@ -25,6 +32,10 @@
       padding: 10px;
       border-radius: 3px;
       cursor: pointer;
+      margin-top: 22px;
+      i {
+          margin-right: 5px;
+      }
     }
   }
 

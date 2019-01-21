@@ -48,5 +48,17 @@
 
   .skills {
     margin-top: 10px;
+
+    .skill {
+      display: flex;
+
+      .score {
+        margin-left: auto;
+      }
+    }
+
+    p {
+      margin: 0;
+    }
   }
 }

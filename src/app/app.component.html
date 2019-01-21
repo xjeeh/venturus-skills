@@ -1,17 +1,45 @@
 <nav class="navbar row end-xs middle-xs">
-  <div class="col-xs-12 col-sm-2 col-md-1 company"><input type="text" placeholder="Cliente"></div>
-  <div class="col-xs-12 col-sm-2 col-md-1 role"><input type="text" placeholder="Cargo"></div>
-  <div class="col-xs-12 col-sm-2 col-md-1 skill"><input type="text" placeholder="Skill"></div>
-  <div class="col-xs-12 col-sm-1 col-md-1 start-sm submit"><button type="button"><i class="fas fa-search"></i></button></div>
+
+  <div class="col-xs-12 col-sm-2 col-md-1 company">
+    <div class="label">Clientes</div>
+    <select [(ngModel)]="filters.companies" (change)="applyFilter()">
+      <option value="">Todos</option>
+      <option *ngFor="let i of objectKeys(companies)" [ngValue]="companies[i].id">{{companies[i].description}}</option>
+    </select>
+  </div>
+
+  <div class="col-xs-12 col-sm-2 col-md-1 role">
+    <div class="label">Cargos</div>
+    <select [(ngModel)]="filters.roles" (change)="applyFilter()">
+      <option value="">Todos</option>
+      <option *ngFor="let i of objectKeys(roles)" [ngValue]="roles[i].id">{{roles[i].description}}</option>
+    </select>
+  </div>
+
+  <div class="col-xs-12 col-sm-2 col-md-1 skill">
+    <div class="label">Habilidades</div>
+    <select [(ngModel)]="filters.skills" (change)="applyFilter()">
+      <option value="">Todas</option>
+      <option *ngFor="let i of objectKeys(skills)" [ngValue]="skills[i].id">{{skills[i].description}}</option>
+    </select>
+  </div>
+
+  <div class="col-xs-12 col-sm-1 col-md-1 start-sm submit">
+    <button type="button" (click)="clearFilters()">
+      <i class="fas fa-ban"></i> 
+      <b>Limpar</b>
+    </button>
+  </div>
+
 </nav>
 
 <div class="container-fluid">
 
   <div class="list container">
-    <div class="row group" *ngFor="let group of objectKeys(profiles)">
-      <h1 class="col-xs-12 title">{{profiles[group].description}}</h1>
-      <app-card class="col-xs-12 col-sm-4 col-md-3" *ngFor="let profile of profiles[group].employees" [profile]="profile"
-        [id]="profiles[group].id" [description]="profiles[group].description" [color]="profiles[group].color"></app-card>
+    <div class="row group" *ngFor="let group of objectKeys(selectedProfiles)">
+      <h1 class="col-xs-12 title" *ngIf="selectedProfiles[group].employees.length > 0">{{selectedProfiles[group].description}}</h1>
+      <app-card class="col-xs-12 col-sm-4 col-md-3" *ngFor="let profile of selectedProfiles[group].employees" [profile]="profile"
+        [id]="selectedProfiles[group].id" [description]="selectedProfiles[group].description" [color]="selectedProfiles[group].color"></app-card>
     </div>
   </div>
 </div>

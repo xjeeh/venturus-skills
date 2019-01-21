@@ -7,12 +7,20 @@
     </defs>
     <polygon points="50 1 95 25 95 75 50 99 5 75 5 25" [attr.stroke]="color" stroke-width="2.5" [attr.fill]="'url(#'+profile.image+')'" />
   </svg>
-  <div class="seniority" [ngClass]="profile.seniority.id" [attr.title]="profile.seniority.description" [innerHTML]="getSeniorityIcon(profile.seniority)">
-  </div>
+  <div class="seniority" [ngClass]="profile.seniority.id" [attr.title]="profile.seniority.description" [innerHTML]="getSeniorityIcon(profile.seniority)"></div>
   <div class="name">{{profile.name}}</div>
   <div class="title">{{description}}</div>
-  <div class="alocation"><b>Alocações:</b> {{profile.allocation.join(', ')}}</div>
+  <div class="alocation"><b>Alocações:</b> {{getAllocation(profile.allocation)}}</div>
   <div class="skills">
-    <b>Skills:</b>
+    <b>Skills: </b>
+    <div *ngFor="let item of profile.skills" class="skill">
+      <b class="description">{{item.skill.description}}</b>
+      <div class="score" [attr.title]="item.skill.role.description ">
+        <!-- Skill point star -->
+        <i class="fas fa-star" [ngStyle]="{'color': item.skill.role.color}" *ngFor="let filledStar of [].constructor(item.score)"></i>
+        <!-- Empty Skill star -->
+        <i class="far fa-star" *ngFor="let emptyStar of [].constructor(5 - item.score)"></i>
+      </div>
+    </div>
   </div>
 </div>

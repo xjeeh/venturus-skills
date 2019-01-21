@@ -38,4 +38,12 @@ export class CardComponent {
       }
     }
   }
+
+  getAllocation(allocation) {
+    return allocation.map(e => e.description).join(', ');
+  }
+
+  getSkills(skills) {
+    return skills.map(e => e.description).join(', ');
+  }
 }
