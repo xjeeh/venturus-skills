@@ -221,8 +221,12 @@ export class AppComponent implements OnInit {
 
         // Remove employees that dont have the selected skills
         this.selectedProfiles[group].employees.forEach((employee, i) => {
-          if (employee.skills[0].skill.id !== 'documentacao') {
+          const hasSkill = employee.skills.some(e => e.skill.id === this.filters.skills).length > 0;
+
+          if (!hasSkill) {
             this.selectedProfiles[group].employees.splice(i, 1);
+            console.log(`${JSON.stringify(this.selectedProfiles[group].employees[i])} has the skill`);
+          } else {
           }
 
         });
