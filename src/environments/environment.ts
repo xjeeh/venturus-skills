@@ -2,9 +2,25 @@
 // `ng build ---prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
+// npm i firebase, angularfire2
+// npm install -g firebase-tools
+
+// firebase login
+// firebase init
+// firebase deploy
+
 export const environment = {
-  production: false
+  production: false,
+  firebase: {
+    apiKey: 'AIzaSyANB0yyZxbPjQ_HPrP8ZyjZnLVFH7kOSrk',
+    authDomain: 'venturus-skills.firebaseapp.com',
+    databaseURL: 'https://venturus-skills.firebaseio.com',
+    projectId: 'venturus-skills',
+    storageBucket: 'venturus-skills.appspot.com',
+    messagingSenderId: '650836830945'
+  }
 };
+
 
 /*
  * In development mode, for easier debugging, you can ignore zone related error
